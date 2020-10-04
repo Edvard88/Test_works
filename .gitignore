@@ -11,7 +11,7 @@
 env/ 
 
 # configs
-*config.py
+objecttracking/config.py
 
 # Annotated test results
 results/
