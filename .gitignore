@@ -10,6 +10,8 @@
 # Virtual environment
 env/ 
 
+# configs
+*config.py
 
 # Annotated test results
 results/
