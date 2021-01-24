@@ -1,39 +1,43 @@
 # README #
+language available: eng, rus
 
 ### About project ###
-This project will explore how to detect and tracking objects from a webcam indoors.
+This project will explore how to creat AutoMl project on table data.
 
 ### Directory structure ###
 ```bash
-+-- README.md.         <- The top-level README for developers using this project.
-+-- requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.generated with `pip freeze > requirements.txt` 
-+-- setup.py.          <- Make this project with `python setup.py build_ext --inplace`
-+-- notebooks.         <- Jupyter notebooks.
-+-- weights.           <- Include models's weights.
-+-- darkflow. 	       <- Write.
-|   +-- dark. 	       <- Write.
-|   +-- net.           <- Write.
-+-- config.py.         <- Login and password for connecting to the RabbitMQ 
-+-- yolo_webcam.py.    <- The main program
++-- README.md.                   <- The top-level README for developers using this project.
++-- requirements.txt             <- The requirements file for reproducing the environment, e.g.generated with `pipreq /<path>` 
++-- setup.py.                    <- Make this project with `python setup.py build_ext --inplace`
++-- ml_data.                     <- Include the data for ml models.
++-- reports.                     <- Include automl reports.
++-- notebooks.                   <- Jupyter notebooks.
+|   +-- Example.ipynb            <- Example AutoML with kaggle-data .
++-- config.yml                   <- loading... 
++-- edotools.                    <- The main project
+|   +-- BaseAutoMlEstimator.py   <- Base AutoML class.
+|   +-- AutoMlClassification.py  <- Class for classifictaion data.
+|   +-- BaseAutoMlEstimator.py   <- Class for regression data.
+|   +-- mytransformers.py        <- Transformers for Base class.
+|   +-- mymetrics.py             <- loading...(Custom metrics)
 ```
+
 
 ### Dependencies ###
 The code is compatible with Python 3 or higher. 
 The following dependencies are needed to run the tracker:
 
-* Tensorflow :I have used CPU version
-* OpenCV
-* VC++ build 14
-* torch >= 0.4
-* torchvision >= 0.1
-* pillow
+* matplotlib>=3.1.1
+* numpy>=1.17.2
+* pandas>=0.25.1
+* scikit_learn>=0.24.1
 
 
 ### Installation ###
 1. Clone this repository  
-`git clone https://edvard88@bitbucket.org/vimpelsoft/objecttracking.git`
+`git clone https://github.com/Edvard88/Test_works/tree/master/edotools`
 
-2. Recommend creating a virtual environment, because **there are dependencies** from **tensorflow version** (need the **1.13.4**). Later versions don't have module tensorflow.contrib    
+2. Recommend creating a virtual environment, because can be dependencies     
 	2.1 Install virtual environment  
 	`sudo apt install -y python3-venv`  
 	2.2 Creat virtual environment    
@@ -49,82 +53,54 @@ The following dependencies are needed to run the tracker:
 
 
 ### Quick Start ###
-`python yolo_webcam_2.py`
-
-You should see
-
-
-Load  |  Yep!  |             Input                | (Parameters       |
------ | ------ | -------------------------------- | ----------------- |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 19, 19, 512)  |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 19, 19, 512)  |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | concat [16]                      | (?, 38, 38, 512)  |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 38, 38, 64)   |
-Load  |  Yep!  | local flatten 2x2                | (?, 19, 19, 256)  |
-Load  |  Yep!  | concat [27, 24]                  | (?, 19, 19, 1280) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1    linear           | (?, 19, 19, 425)  |
-Running entirely on CPU
-
-
-You can also see the data that is sent to RabbitMQ:    
-{'timestamp': 1584033256.291286, 'fps': '0.454108', 'label': 'person', 'confidence': '0.7981056', 'x_center': '647.5', 'y_center': '378.0'}  
-{'timestamp': 1584033257.1981199, 'fps': '1.324479', 'label': 'person', 'confidence': '0.8224412', 'x_center': '646.0', 'y_center': '376.0'}  
-{'timestamp': 1584033257.949561, 'fps': '1.434669', 'label': 'person', 'confidence': '0.8119112', 'x_center': '646.5', 'y_center': '374.5'}  
-{'timestamp': 1584033258.722261, 'fps': '1.360957', 'label': 'person', 'confidence': '0.79016924', 'x_center': '647.0', 'y_center': '373.5'}  
-{'timestamp': 1584033259.452522, 'fps': '1.416902', 'label': 'person', 'confidence': '0.8129106', 'x_center': '645.5', 'y_center': '379.0'}  
-
-* timestamp - unix timestamp
-* fps - frames per second
-* label - object label (just a person for this release)
-* x_center, y_center - center of the object, calculated as the point intersection of box's diagonals
+You may see the notebooks/Example.ipynb to quick start
 
 
 
 ### Contact ###
-our@mail.com
+edvard88@inbox.ru
 
 ===============================================================================================================================
 
 ### О проекте ###
-Проект по распознованию (object detection) и сопровождению (tracking) пользователей в закрытых посещених с помощью камеры.
+Проект по созданию AutoML на табличных данных 
 
 ### Структура директории###
+
 ```bash
-+-- README.md.         <- Основной README для разработчиков, использующие этот проект.
-+-- requirements.txt   <- Фаил `requirements.txt` с используемые версиями библиотек для воспроизводимости программы.
-+-- setup.py.          <- Соберите проект с помощью `python setup.py build_ext --inplace`
-+-- notebooks.         <- Jupyter notebooks.
-+-- weights.           <- Директория для весов моделей.
-+-- darkflow. 	       <- Write.
-|   +-- dark. 	       <- Write.
-|   +-- net.           <- Write.
-+-- config.py.         <- Параметры для подключения к RabbitMQ 
-+-- yolo_webcam.py.    <- Основная программа
++-- README.md.                   <- Основной README для разработчиков, использующие этот проект.
++-- requirements.txt             <- Фаил `requirements.txt` с используемые версиями библиотек для воспроизводимости программы. 
++-- setup.py.                     <- Соберите проект с помощью `python setup.py build_ext --inplace`
++-- ml_data.                     <- Включается в себя тестовые данные для проверки AutoML.
++-- reports.                     <- Вклчючает AutoML отчеты.
++-- notebooks.                   <- Jupyter notebooks.
+|   +-- Example.ipynb            <- Пример AutoML, запущенного на kaggle данных .
++-- config.yml                   <- loading... (пока не создан)
++-- edotools.                    <- Главнй проект
+|   +-- BaseAutoMlEstimator.py   <- Базовый класс AutoML.
+|   +-- AutoMlClassification.py  <- Класс для задач классифкации.
+|   +-- BaseAutoMlEstimator.py   <- Класс для задач регрессии.
+|   +-- mytransformers.py        <- Вспомогательные трансформеры для Базового класса
+|   +-- mymetrics.py             <- loading... (Кастомные метрики)
 ```
+
+
 
 ### Зависимости ###
 Код копилируется на версии Python 3 и выше
 Для запуска проекта необходимы следующие зависимости:
 
-* Tensorflow :I have used CPU version
-* OpenCV
-* VC++ build 14
-* torch >= 0.4
-* torchvision >= 0.1
-* pillow
+* matplotlib>=3.1.1
+* numpy>=1.17.2
+* pandas>=0.25.1
+* scikit_learn>=0.24.1
 
 
 ### Установка ###
 1. Скопируйте репозиторий 
-`git clone https://edvard88@bitbucket.org/vimpelsoft/objecttracking.git`
+`git clone https://github.com/Edvard88/Test_works/tree/master/edotools`
 
-2. Рекомендуем создать виртуальное окружение, потому что есть зависимости от **версии tensorflow** (нужна **1.13.4**). В более поздних версиях нет модуля tensorflow.contrib    
+2. Рекомендуем создать виртуальное окружение, потому что могут быть зависимости
       
 	2.1 Установка виртуального окружения    
 	`sudo apt install -y python3-venv`  
@@ -141,41 +117,10 @@ our@mail.com
 4. Запустите код  
 `python setup.py build_ext --inplace`   
 
-### Запуск программы  
-`python yolo_webcam_2.py`
+### Быстрый запуск программы   
+Можно посмотреть notebook с примером notebooks/Example.ipynb для быстрого старта
 
-Вы должны увидеть:
-
-Load  |  Yep!  |             Input                | (Parameters       |
------ | ------ | -------------------------------- | ----------------- |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 19, 19, 512)  |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 19, 19, 512)  |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | concat [16]                      | (?, 38, 38, 512)  |
-Load  |  Yep!  | conv 1x1p0_1  +bnorm  leaky      | (?, 38, 38, 64)   |
-Load  |  Yep!  | local flatten 2x2                | (?, 19, 19, 256)  |
-Load  |  Yep!  | concat [27, 24]                  | (?, 19, 19, 1280) |
-Load  |  Yep!  | conv 3x3p1_1  +bnorm  leaky      | (?, 19, 19, 1024) |
-Load  |  Yep!  | conv 1x1p0_1    linear           | (?, 19, 19, 425)  |
-Running entirely on CPU
-
-
-Также будут видны данные, которые отправляются в RabbitMQ:    
-{'timestamp': 1584033256.291286, 'fps': '0.454108', 'label': 'person', 'confidence': '0.7981056', 'x_center': '647.5', 'y_center': '378.0'}  
-{'timestamp': 1584033257.1981199, 'fps': '1.324479', 'label': 'person', 'confidence': '0.8224412', 'x_center': '646.0', 'y_center': '376.0'}  
-{'timestamp': 1584033257.949561, 'fps': '1.434669', 'label': 'person', 'confidence': '0.8119112', 'x_center': '646.5', 'y_center': '374.5'}  
-{'timestamp': 1584033258.722261, 'fps': '1.360957', 'label': 'person', 'confidence': '0.79016924', 'x_center': '647.0', 'y_center': '373.5'}  
-{'timestamp': 1584033259.452522, 'fps': '1.416902', 'label': 'person', 'confidence': '0.8129106', 'x_center': '645.5', 'y_center': '379.0'}  
-
-* timestamp - время в формате Unix 
-* fps - кадровая частота в секунду
-* label - метка объекта (в текущей реализации только человек "person")
-* x_center, y_center - центр объекта, высчитывается как точка пересечения дигоналей прямоугольника
 
 ### Контакты ###
-our@mail.com
+edvard88@inbox.ru
 
