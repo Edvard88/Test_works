@@ -1,6 +1,6 @@
 Cython==0.29.15
 matplotlib==3.2.0
 opencv_python_headless==4.2.0.32
-tensorflow==1.13.2
+tensorflow==2.6.4
 pika==1.1.0
 numpy==1.18.1
